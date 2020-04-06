@@ -24,17 +24,18 @@ public class csGit {
 	private MyTestService myTestServiceImpl=null;
 	
 	@ResponseBody
-//	@RequestMapping(value="/ceshi",produces = {"text/plain;charset=utf-8","text/html;charset=utf-8"}) 防止 @ResponseBody乱码
+//	@RequestMapping(value="/ceshi",produces = {"text/plain;charset=utf-8","text/html;charset=utf-8"}) 路脌脰鹿 @ResponseBody脗脪脗毛
 	@RequestMapping(value="/ceshi")
 	public Map<String ,Person> test1(){
-		Person person=new Person("小明","60",'1');//{"id":"d275e64865e611ea933668f728ada465","name":"小明","grade":"60","sex":"1"}
+		Person person=new Person("脨隆脙梅","60",'1');//{"id":"d275e64865e611ea933668f728ada465","name":"脨隆脙梅","grade":"60","sex":"1"}
 		List<Person> list=new ArrayList<Person>();
-		list.add(person);list.add(person);//[{"id":"2a3ae50665e711ea933668f728ada465","name":"小明","grade":"60","sex":"1"},{"id":"2a3ae50665e711ea933668f728ada465","name":"小明","grade":"60","sex":"1"}]
+		list.add(person);list.add(person);//[{"id":"2a3ae50665e711ea933668f728ada465","name":"脨隆脙梅","grade":"60","sex":"1"},{"id":"2a3ae50665e711ea933668f728ada465","name":"脨隆脙梅","grade":"60","sex":"1"}]
 		String addPerson=null;
 		Map<String ,Person> map=new HashMap<String,Person>();
 		map.put("a", person);
-		map.put("b", person);//{"a":{"id":"8a7f937e65e711ea933668f728ada465","name":"小明","grade":"60","sex":"1"},"b":{"id":"8a7f937e65e711ea933668f728ada465","name":"小明","grade":"60","sex":"1"}}
+		map.put("b", person);//{"a":{"id":"8a7f937e65e711ea933668f728ada465","name":"脨隆脙梅","grade":"60","sex":"1"},"b":{"id":"8a7f937e65e711ea933668f728ada465","name":"脨隆脙梅","grade":"60","sex":"1"}}
 		try {
+			addPerson = myTestServiceImpl.addPerson(person);
 			addPerson = myTestServiceImpl.addPerson(person);
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
