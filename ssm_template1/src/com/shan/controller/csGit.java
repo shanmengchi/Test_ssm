@@ -29,6 +29,7 @@ public class csGit {
 	public Map<String ,Person> test1(){
 		Person person=new Person("Ð¡Ã÷","60",'1');//{"id":"d275e64865e611ea933668f728ada465","name":"Ð¡Ã÷","grade":"60","sex":"1"}
 		List<Person> list=new ArrayList<Person>();
+		System.out.print("git");
 		list.add(person);list.add(person);//[{"id":"2a3ae50665e711ea933668f728ada465","name":"Ð¡Ã÷","grade":"60","sex":"1"},{"id":"2a3ae50665e711ea933668f728ada465","name":"Ð¡Ã÷","grade":"60","sex":"1"}]
 		String addPerson=null;
 		Map<String ,Person> map=new HashMap<String,Person>();
