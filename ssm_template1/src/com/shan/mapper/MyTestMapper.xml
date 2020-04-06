@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--namespace:命名空间，用于隔离sql语句 #{}：占位符，相当于jdbc的？ ${}:字符串拼接指令，如果入参为普通数据类型{}里面只能写 
+	‘value’ -->
+<!-- 动态代理开发规则： 1.namespace必须是接口的全路径名 2.接口的方法名必须与sql id一致 3.接口的入参必须与parameterType类型一致 
+	4.接口的返回值必须与resultType类型一致 -->
+
+<mapper namespace="com.shan.mapper.MyTestMapper">
+	<!-- <insert id="insert" parameterType="com.shan.pojo.Person" useGeneratedKeys="true" keyProperty="p.id">
+		insert into ssm_template(name,grade,sex) values(#{p.name},#{p.grade},#{p.sex})
+	</insert> -->
+	
+	<insert id="insert" parameterType="com.shan.pojo.Person">
+		<selectKey keyProperty="p.id" order="BEFORE" resultType="String">  
+              select replace(uuid(),'-','') from dual 
+        </selectKey> 
+		insert into ssm_template(id,name,grade,sex) values(#{p.id},#{p.name},#{p.grade},#{p.sex})
+	</insert>
+	
+	<select id="selectById" parameterType="java.lang.String" resultType="person">
+		select  * from ssm_template where id=#{id}
+	</select>
+</mapper>
