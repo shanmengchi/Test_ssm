@@ -29,7 +29,7 @@ public class myInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if ("GET".equalsIgnoreCase(request.getMethod())) {
-			
+			request.getRequestDispatcher("/jsp/index.jsp").forward(request, response);
 		}
 		log.info("==============Ö´ÐÐË³Ðò: 1¡¢preHandle================");  
 		String requestUri = request.getRequestURI();
