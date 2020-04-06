@@ -21,6 +21,7 @@ public class MyTestServiceImpl implements MyTestService{
 	@Transactional(isolation=Isolation.READ_COMMITTED,propagation=Propagation.REQUIRED)
 	@CachePut(value="redisCacheManager",key="'redis_role_'+#person.id")
 	public String addPerson(Person person) throws RuntimeException{
+		System.out.println("呵呵");
 		int insert = myTestMapper.insert(person);
 		if(insert<1){
 			throw new RuntimeException("用户数据插入失败！");
